@@ -1,16 +1,17 @@
-
-
 import json
 import pycountry
 from tkinter import Tk, Label, Button, Entry
-from phone_iso3166.country import phone_country
+import requests
 
+
+from phone_iso3166.country import phone_country
 
 def number_details1():
     import phonenumbers
     import folium
     from mynumber import number
     from phonenumbers import geocoder,timezone,carrier
+    
 
     key ='b72366878ec4414381ce6defa1dec069'
     samnumber = phonenumbers.parse(number)
@@ -45,6 +46,7 @@ def number_details1():
     mymap.save("mylocation.html")
 
 def number_details2():
+    
     #track secound
     class Location_Tracker:
         def __init__(self, App):
@@ -89,7 +91,7 @@ def number_details2():
     PhoneTracker.mainloop()
 
 def ip_info():
-    import requests
+   
 
     ## single ip request
     response = requests.get("http://ip-api.com/json/24.48.0.1").json()
@@ -110,7 +112,7 @@ def ip_info():
 
 
 while(1):
-    print("1. Number Details1 2. Number Details2 3. IP tracking info")
+    print("1. Number Details \n2. Number Details from user \n3. IP Location track\n")
     a = int(input("Chose One : "))
     if a==1:
         number_details1()
